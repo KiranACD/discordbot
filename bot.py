@@ -1,5 +1,5 @@
 import os
-from discord.ext import commands
+from nextcord.ext import commands
 from dotenv.main import load_dotenv# load environment variables if we are hosting it in an another platform.
 
 def main():

@@ -1,13 +1,21 @@
-from discord.ext import commands
+from nextcord.ext import commands
 import random
 
 class Random(commands.Cog, name='Random'):
+    '''Anything that involves using random function'''
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
     
     @commands.command()
     async def roll(self, ctx: commands.Context, dice: str):
+        '''Rolls a givn amount of dice in the form of _d_
+        
+        Example:
+
+        $roll 1d6
+        
+        '''
 
         try:
             rolls = ''

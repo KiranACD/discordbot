@@ -1,5 +1,5 @@
-import discord
-from discord.ext import commands
+import nextcord
+from nextcord.ext import commands
 from dotenv import load_dotenv
 import os
 import redis
@@ -53,7 +53,7 @@ class ReadEmailRegister(commands.Cog, name='Read Email'): #name is the name of t
         
         print('Reached role assignment.')
 
-        role = discord.utils.get(user.guild.roles, name='Active')
+        role = nextcord.utils.get(user.guild.roles, name='Active')
 
         await user.add_roles(role)
 
@@ -62,7 +62,7 @@ class ReadEmailRegister(commands.Cog, name='Read Email'): #name is the name of t
         for role in roles:
             self.r.sadd(f'{email}_{user.id}_role_name', role.name)
         
-        await user.send('{user.mention} You are registered. Proceed to the #start-here channel.')
+        await user.send(f'{user.mention} You are registered. Proceed to the #start-here channel.')
         await ctx.message.delete()
 
 def setup(bot: commands.Bot):
